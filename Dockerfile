@@ -10,6 +10,6 @@ RUN mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 RUN cd build && make -j && make install
 
 RUN cp build/3rdparty/protobuf-cmake/protoc/protoc 3rdparty/protobuf/src/
-RUN cd 3rdparty/protobuf/python && python setup.py install 
+RUN cd 3rdparty/protobuf/python && python setup.py build && python setup.py install 
 
 RUN cd python && python setup.py install
