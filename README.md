@@ -3,7 +3,7 @@ bigartm-docker
 
 ### Get the image from DockerHub
 ```
-$ docker fetch ofrei/bigartm
+$ docker pull ofrei/bigartm
 ```
 
 ### Run CLI
