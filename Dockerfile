@@ -3,12 +3,14 @@ MAINTAINER Oleksandr Frei <oleksandr.frei@gmail.com>
 
 RUN apt-get update -y
 RUN apt-get install -y cmake libboost-all-dev wget
+RUN pip install --upgrade pip
+RUN pip install tqdm
+RUN pip3 install tqdm
 
-RUN git clone --depth=1 https://github.com/bigartm/bigartm.git
+RUN git clone --branch v0.8.2 --depth=1 https://github.com/bigartm/bigartm.git
 WORKDIR bigartm
 
-RUN mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
-RUN cd build && make -j && make install
+RUN mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. && make -j && make install
 
 RUN cd 3rdparty/protobuf-3.0.0/python && python setup.py build && python setup.py install
 RUN cd 3rdparty/protobuf-3.0.0/python && python3 setup.py build && python3 setup.py install
