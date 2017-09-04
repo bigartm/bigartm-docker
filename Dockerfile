@@ -13,7 +13,7 @@ RUN /opt/python/cp27-cp27mu/bin/pip install -U pip
 RUN /opt/python/cp27-cp27mu/bin/pip install -U pytest pep8 wheel protobuf==3.0.0 numpy scipy pandas tqdm --only-binary numpy scipy pandas
 
 #RUN git clone --branch v0.8.3 --depth=1 https://github.com/bigartm/bigartm.git
-RUN git clone --branch pio --depth=1 https://github.com/ofrei/bigartm.git
+RUN git clone --branch pip --depth=1 https://github.com/ofrei/bigartm.git
 WORKDIR bigartm
 
 RUN mkdir build && cd build && cmake -DPYTHON=/opt/python/cp27-cp27mu/bin/python -DBUILD_TESTS=OFF -DBoost_USE_STATIC_LIBS=ON -DCMAKE_INSTALL_PREFIX:PATH=/usr .. && make && make install
